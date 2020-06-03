@@ -1,0 +1,47 @@
+<div class="alert alert-danger" *ngIf='message'>{{ message }}</div>
+<body>
+  <div class="container">
+    <div  class="row">
+  <div class="col-md-6">
+  <form #loginForm='ngForm' (ngSubmit)="login(loginForm)" id="form" novalidate>
+  
+        <h1 class="login">LOGIN</h1>
+    <hr>
+     
+    <div class="form-group">
+      <br>
+      <label for="email">Email-ID</label>
+      <input required email #email='ngModel' placeholder="Enter Email-ID" [class.is-invalid]='email.invalid && email.touched' 
+      id="email" type="email" class="form-control form-control-lg" 
+      name="email" ngModel minlength="8">
+      <div *ngIf="email.invalid && email.touched">
+        <small *ngIf="email.errors?.required" class="text-danger">This field is required.</small>
+        <small *ngIf="email.errors.minlength" class="text-danger">This field should contain atleast 8 characters.</small>
+        <small *ngIf="email.errors?.email && !(email.errors?.minlength)" class="text-danger">This field only accepts email-id.</small>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+      <label>Password</label>
+    <input required #password='ngModel' pattern="(?=.*[a-z])(?=.*\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,15}"  placeholder="Enter Password"  
+    [class.is-invalid]='password.invalid && password.touched' type="password" class="form-control form-control-lg"  name="password" ngModel >
+    <div *ngIf="password.invalid && password.touched">
+      <small *ngIf="password.errors?.required" class="text-danger">This field is required.</small>
+      <small *ngIf="password.errors?.pattern" class="text-danger">Must contain at least one number, one uppercase, one lowercase, one special character and atleast 8 or more characters.</small>
+      </div>
+</div>
+
+      <button class="btn btn-lg btn-block float-right" [disabled]='loginForm.form.invalid || loginForm.form.errors' type="submit">SIGN IN</button>
+        
+  </form>
+</div>
+<div id="side" class="col-md-3">
+  <h1 class="makeLoan">New user? Please</h1>
+  <br>
+  <br>
+  <a routerLink="/make-loan">Apply for home loan</a>
+</div>
+    </div>
+  </div>
+</body>

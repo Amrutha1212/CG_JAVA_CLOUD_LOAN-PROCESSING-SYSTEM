@@ -1,0 +1,68 @@
+<div class= "alert alert-danger" *ngIf='message'>{{ message}}</div>
+<div class="col-md-8 offset-2 mt-5" >
+  <div class="row">
+
+
+    <div class="sort">
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Sort by</div>
+        </div>
+        
+        <select class="form-control col-md-8" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+          <option value="fullName">Name</option>
+          <option value="email">Email- Id</option>
+          <option value="mobileNo">Mobile Number</option>
+        </select>
+      </div>
+    </div>
+  
+
+
+    <!-- <h3 class="col-md-2">Sort by</h3>
+    <div class="form-group">
+      <select class="form-control" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+        <option value="fullName">fullName</option>
+        <option value="email">email</option>
+        <option value="mobileNo">mobileNo</option>
+      </select>
+    </div> -->
+    <div class="col-md-3">
+      <input type="search" class="form-control" placeholder="search name.." [(ngModel)]="searchValue" id="filter">
+    </div>
+  </div>
+<table class="table table-hover table-bordered" >
+  <thead>
+    <tr class="tablebg">
+      <th scope="col">Client ID</th>
+      <th scope="col">FullName</th>
+      <th scope="col">Email-Id</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Adhar Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let clients of client | searchPipe : searchValue : 'fullName'">
+      <td>{{clients.userId}}</td>
+      <td>{{clients.fullName}}</td>
+      <td>{{clients.email}}</td>
+      <td>{{clients.mobileNo}}</td>
+      <td>{{clients.gender}}</td>
+      <td>{{clients.dob}}</td>
+      <td>{{clients.adharNo}}</td>
+      <td>
+      <input type="button" class="btn btn-outline-danger"  (click)='deleteClient(clients)'
+      value="delete"></td>
+    </tr>
+  </tbody>
+</table>
+<mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              (page) ="getNextPageItems($event)">
+</mat-paginator>
+
+</div>

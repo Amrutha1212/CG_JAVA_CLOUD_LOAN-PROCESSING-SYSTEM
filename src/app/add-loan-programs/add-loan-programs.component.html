@@ -1,0 +1,55 @@
+<div class= "alert alert-success" *ngIf='message'>{{ message}}</div>
+<body>
+  <div class="container-fluid col-md-5">
+<form #addLoanProgram='ngForm' (ngSubmit)='postLoans(addLoanProgram)' novalidate id="form">
+  <h1>ADD LOAN PROGRAM</h1><hr>
+
+  <div class="form-group"> 
+    <label>Loan Type</label>
+    <select class="form-control form-control-lg" name="loanType" [class.is-invalid]='loanType.invalid && loanType.touched' ngModel #loanType="ngModel" required>
+      <option value="Home Construction">Home Construction</option>
+      <option value="Home Purchase">Home Purchase</option>
+      <option value="Home Extension">Home Extension</option>
+      <option value="Home Extension">Home Conversion</option>
+    </select>
+    <div *ngIf='loanType.invalid && loanType.touched'>
+      <small class="text-danger" *ngIf='loanType.errors.required'>Please choose any option!!</small>
+    </div>
+  </div>
+
+
+ <div class="form-group">
+  <label>Loan Amount</label>
+  <input type="text" #amount='ngModel' required pattern="[0-9]{4,8}"  [class.is-invalid]='amount.invalid && amount.touched' 
+  class="form-control form-control-lg" id="amount" name="loanAmount" ngModel>
+<div *ngIf="amount.invalid && amount.touched">
+  <small class="text-danger" *ngIf='amount.errors.required'>This field is required.</small>
+  <small class="text-danger" *ngIf='amount.errors.pattern'>This field only accepts minimum of 4 digit and maximum of 8 digit loan amount.</small>
+</div>
+</div>
+ 
+<div class="form-group">
+  <label>Rate of Intrest</label>
+  <input required  #rateOfIntrest='ngModel' pattern="([1-9]|1[0-4]).([0-9]{1,4})%"  [class.is-invalid]='rateOfIntrest.invalid && rateOfIntrest.touched' id="rateOfIntrest" type="text" class="form-control form-control-lg" 
+  name="rateOfInterest" ngModel>
+  <div *ngIf="rateOfIntrest.invalid && rateOfIntrest.touched">
+    <small *ngIf="rateOfIntrest.errors?.required" class="text-danger">This field is required.</small>
+    <small *ngIf="rateOfIntrest.errors?.pattern" class="text-danger">Only accepts proper Rate of Intrest (Eg. 6.3%) and should be in between 1.0% to 14.9%</small>
+    </div>
+</div>
+
+<div class="form-group">
+  <label>Period</label>
+  <input required  #period='ngModel' pattern="([1-9]|1[0-9]) (years)"  [class.is-invalid]='period.invalid && period.touched' id="period" type="text" class="form-control form-control-lg" 
+  name="period" ngModel>
+  <div *ngIf="period.invalid && period.touched">
+    <small *ngIf="period.errors?.required" class="text-danger">This field is required.</small>
+    <small *ngIf="period.errors?.pattern" class="text-danger">only accepts proper period (Eg. 2 years) and maximum of 19 years.</small>
+    </div>
+</div>
+
+<button type="submit" [disabled]='addLoanProgram.form.invalid || addLoanProgram.form.errors' name="submit" class="btn btn-block">Add Loan Program</button>
+
+</form>
+  </div>
+</body>

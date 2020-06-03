@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+    <div class="row">
+      <div class="sort">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Sort by</div>
+          </div>
+          
+          <select class="form-control col-md-8" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+            <option value="userId">User-Id</option>
+            <option value="fullName">Name</option>
+            <option value="email">Email- Id</option>
+            <option value="mobileNo">Mobile Number</option>
+          </select>
+        </div>
+      </div>
+    
+      
+      <div class="col-md-2">
+        <input type="search" class="form-control" placeholder="search name.." [(ngModel)]="searchValue" id="filter">
+      </div>
+    </div>  
+
+        <table class="table table-bordered table-hover">
+          <thead>
+        <tr  class="tablebg">
+          <th scope="col">User-Id</th> 
+          <th scope="col">Full name</th>
+          <th scope="col">Email</th>
+          <th scope="col">DOB</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Adhaar Number</th>
+          <th scope="col">Loan Type</th>
+          <th scope="col">Loan Amount</th>
+          <th scope="col">Application Status</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let users of user | searchPipe : searchValue : 'fullName'">
+          <ng-container *ngFor='let applicants of users.applicant'>
+
+          <tr>
+             <td>{{users.userId}}</td> 
+            <td>{{users.fullName}}</td>
+            <td>{{users.email}}</td>
+            <td>{{users.dob}}</td>
+            <td>{{users.gender}}</td>
+            <td>{{users.mobileNo}}</td>
+            <td>{{users.adharNo}}</td>
+            <td>{{applicants.loanType}}</td>
+            <td>{{applicants.loanAmount}}</td>
+            <td>{{applicants.applicationStatus}}</td>
+          </tr>
+        </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+    <mat-paginator [length]="totalItems"
+[pageSize]="itemsPerPage"
+[pageSizeOptions]="[2, 5, 10, 25, 100]"
+(page) ="getNextPageItems($event)">
+        </mat-paginator>
+  </div>
+</div>

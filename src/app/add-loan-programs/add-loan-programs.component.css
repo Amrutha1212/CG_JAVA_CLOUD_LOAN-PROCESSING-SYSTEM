@@ -1,0 +1,48 @@
+.form-control{
+    border-radius: 30px;
+    background-color: rgb(232, 238, 253);
+}
+label{
+    font-size: large;
+    font-family: cursive;
+    font-weight: bold;
+    color: rgba(3, 29, 56, 0.767);
+}
+option{
+    font-family: cursive;
+}
+.alert{
+    font-family: cursive;
+}
+#form{
+    background: linear-gradient(rgba(209, 230, 252, 0.767),rgba(209, 230, 252, 0.767));
+    background-size: cover;
+    padding: 70px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    /* box-shadow: 2px 2px 5px 5px #999;
+    box-shadow: 0 0 3px 3px #999; */
+    box-shadow: 0 4px 8px 0 #999, 0 6px 20px 2px #999;
+    border-radius: 20px;
+}
+h1{
+    margin-bottom: 10px;
+    font-family: cursive;
+    text-align: center;
+    color: rgba(5, 58, 112, 0.767);
+    font-weight: bold;
+}
+.btn{
+    border-radius: 30px;
+    margin-top: 110px;
+    margin-bottom: 40px;
+    font-family: cursive;
+    font-size: x-large;
+    background-color: rgba(5, 58, 112, 0.767);
+    color: white;
+}
+small{
+    font-family: cursive;
+    font-weight: bold;
+    padding-left: 10px;
+}

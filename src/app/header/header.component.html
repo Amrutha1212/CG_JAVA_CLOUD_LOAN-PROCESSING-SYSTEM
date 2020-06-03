@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.ENAQiRcr5yxnulnzI_e5pQHaIQ&pid=Api&P=0&w=300&h=300" alt="" width="60px" height="60px" style="border-radius: 100%;">
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" style="font-size:larger;">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/home" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" *ngIf='clientService.isAdmin()'>
+              <a class="nav-link" routerLink="/view-customer" >View Customer</a>
+          </li>
+            <li class="nav-item" *ngIf='clientService.isAdmin()'>
+                <a class="nav-link" routerLink="/add-loan-programs" >Add Loan Program</a>
+            </li>
+            <li class="nav-item" *ngIf='!clientService.isAdmin()'>
+              <a class="nav-link" routerLink="/view-loan-programs" >Loan Programs</a>
+          </li>
+          <li class="nav-item" *ngIf='clientService.isAdmin()'>
+            <a class="nav-link" routerLink="/view-lpg-admin" >Loan Programs</a>
+        </li>
+          <li class="nav-item" *ngIf='clientService.isAdmin()'>
+            <a class="nav-link" routerLink="/add-client" >Add Client</a>
+        </li>
+     
+      <li class="nav-item" *ngIf='clientService.isCustomer()'>
+        <a class="nav-link" routerLink="/loan-login" >Apply Loan</a>
+    </li>
+    <li class="nav-item" *ngIf='clientService.isCustomer()'>
+      <a class="nav-link" routerLink="/check-status" >Check Status</a>
+  </li>
+        <li class="nav-item" *ngIf='clientService.isAdmin()'>
+            <a class="nav-link" routerLink="/view-client" >View Client</a>
+        </li>
+        <li class="nav-item" *ngIf='clientService.isApproval()'>
+          <a class="nav-link" routerLink="/view-applicant-details" >Applications</a>
+      </li>
+        </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf='!clientService.isLogged()'>
+          <a class="nav-link" routerLink="/login" >Login</a>
+      </li>
+      <li class="nav-item" *ngIf='!clientService.isLogged()'>
+        <a class="nav-link" routerLink="/make-loan" >Apply Loan</a>
+    </li>
+    <li class="nav-item" *ngIf='clientService.isLogged()'>
+      <a class="nav-link" routerLink="/get-details" >My Account</a>
+  </li>
+    <li class="nav-item" *ngIf='clientService.isLogged()'>
+      <a class="nav-link" style="cursor: pointer;" (click)='clientService.logout()'>Logout</a>
+  </li>
+      </ul>
+    </div>
+</nav>

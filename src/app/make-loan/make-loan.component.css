@@ -1,0 +1,88 @@
+.form-control{
+    border-radius: 30px;
+    background-color: rgb(232, 238, 253);
+}
+label{
+    font-size: large;
+    font-family: cursive;
+    /* color:  rgb(10, 10, 94); */
+    font-weight: bold;
+    color: rgba(3, 29, 56, 0.767);
+}
+
+#form{
+    background: linear-gradient(rgba(209, 230, 252, 0.767),rgba(189, 217, 248, 0.767));
+    background-size: cover;
+    padding: 70px;
+    margin-top: 90px;
+    margin-bottom: 90px; 
+    /* box-shadow: 2px 2px 5px 5px #999;
+    box-shadow: 0 0 3px 3px #999; */
+    /* border-radius: 20px; */
+}
+.makeLoan{
+    margin-bottom: 10px;
+    font-family: cursive;
+    text-align: center;
+    color: rgba(5, 58, 112, 0.767);
+    font-weight: bold;
+}
+.btn{
+    border-radius: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: cursive;
+    font-size: x-large;
+    background-color: rgba(5, 58, 112, 0.767);
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+small{
+    font-family: cursive;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.alert{
+    font-family: cursive;
+}
+option{
+    font-family: cursive;
+}
+#reset{
+    float: right;
+}
+#side{
+    background-color: rgba(5, 58, 112, 0.767);
+    background-size: cover;
+    padding: 70px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    margin-left: 170px;
+    
+}
+.col-md-6{
+    position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.login{
+    padding-top: 225px;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    color: white;
+}
+a{
+   color: black;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 45px;
+    padding-left: 20px;
+}
+/* body{
+    background: linear-gradient(rgba(245, 244, 244, 0.767),rgba(245, 244, 244, 0.767));
+    width: 100%;
+} */
+

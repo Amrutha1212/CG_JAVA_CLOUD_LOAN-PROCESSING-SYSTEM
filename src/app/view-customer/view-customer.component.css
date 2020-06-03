@@ -1,0 +1,54 @@
+
+td{
+    padding: 16px;
+   
+}
+.tablebg
+{
+background-color: rgba(5, 58, 112, 0.767);
+font-family: cursive;
+font-weight: bold;
+font-size: larger;
+color: white;
+text-align: center;
+
+}
+table{
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+tbody{
+    text-align: center;
+    font-family: cursive;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+  .col-md-8{
+    margin-right: 260px;
+  }
+  .row{
+    margin-right: 50px;
+    margin-top: 30px;
+ }
+ mat-paginator{
+    font-size: larger;
+    font-family: cursive;
+    font-weight: bold;
+    float: left;
+    margin-left: 20px;
+    /* margin-top: 90px; */
+}
+#filter{
+    margin-left: 615px;
+    font-family: cursive;
+    border-radius: 20px;
+   
+}
+.input-group-text{
+    margin-left: 60px;
+    font-family: cursive;
+    font-weight: bold;
+    color: rgba(5, 58, 112, 0.767);
+}

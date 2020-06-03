@@ -1,0 +1,55 @@
+<div class= "alert alert-success" *ngIf='message'>{{ message}}</div>
+<body>
+  <div class="container-fluid col-md-5">
+<form #editLoanProgram='ngForm' (ngSubmit)='updateLoan(editLoanProgram)' novalidate id="form">
+  <h1>EDIT LOAN PROGRAM</h1><hr>
+  <input type="hidden" required  #loanNo="ngModel" 
+  class="form-control" name="loanNo"    [(ngModel)]='loanToUpdate.loanNo' >
+
+  <div class="form-group">
+    <label>Loan Type</label>
+    <input required  #loanType='ngModel' pattern="[a-zA-Z ]{4,25}"  [class.is-invalid]='loanType.invalid && loanType.touched' id="loanType" type="text" class="form-control form-control-lg" 
+    name="loanType"  [(ngModel)]='loanToUpdate.loanType'>
+    <div *ngIf="loanType.invalid && loanType.touched">
+      <small *ngIf="loanType.errors?.required" class="text-danger">This field is required.</small>
+      <small *ngIf="loanType.errors?.pattern" class="text-danger">This field must contain atleast 4 characters.</small>
+      </div>
+ </div>
+
+
+ <div class="form-group">
+  <label>Loan Amount</label>
+  <input type="text" #amount='ngModel' required pattern="[0-9]{4,8}"  [class.is-invalid]='amount.invalid && amount.touched' 
+  class="form-control form-control-lg" id="amount" name="loanAmount" [(ngModel)]='loanToUpdate.loanAmount'>
+<div *ngIf="amount.invalid && amount.touched">
+  <small class="text-danger" *ngIf='amount.errors.required'>This field is required.</small>
+  <small class="text-danger" *ngIf='amount.errors.pattern'>This field only accepts minimum of 4 digit and maximum of 8 digit amount.</small>
+</div>
+</div>
+ 
+<div class="form-group">
+  <label>Rate of Intrest</label>
+  <input required  #rateOfIntrest='ngModel' pattern="([0-9]{1,2}).([0-9]{1,4})%"  [class.is-invalid]='rateOfIntrest.invalid && rateOfIntrest.touched' id="rateOfIntrest" type="text" class="form-control form-control-lg" 
+  name="rateOfInterest" [(ngModel)]='loanToUpdate.rateOfInterest'>
+  <div *ngIf="rateOfIntrest.invalid && rateOfIntrest.touched">
+    <small *ngIf="rateOfIntrest.errors?.required" class="text-danger">This field is required.</small>
+    <small *ngIf="rateOfIntrest.errors?.pattern" class="text-danger">Only accepts proper Rate of Intrest (Eg. 6.3%)</small>
+    </div>
+</div>
+
+<div class="form-group">
+  <label>Period</label>
+  <input required  #period='ngModel' pattern="([0-9]{1,2}) ([a-zA-Z]{4,5})"  [class.is-invalid]='period.invalid && period.touched' id="period" type="text" class="form-control form-control-lg" 
+  name="period" [(ngModel)]='loanToUpdate.period'>
+  <div *ngIf="period.invalid && period.touched">
+    <small *ngIf="period.errors?.required" class="text-danger">This field is required.</small>
+    <small *ngIf="period.errors?.pattern" class="text-danger">only accepts proper period (Eg. 2 years)</small>
+    </div>
+</div>
+
+<button type="submit" [disabled]='editLoanProgram.form.invalid || editLoanProgram.form.errors' name="submit" class="btn btn-block">Update Changes</button>
+
+</form>
+  </div>
+</body>
+

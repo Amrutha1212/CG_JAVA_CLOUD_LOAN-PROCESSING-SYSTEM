@@ -1,0 +1,56 @@
+
+<body>
+  <div class="col-md-8 offset-2 mt-5">
+    <div class="row">
+      <!-- <h3 class="col-md-2">Sort by</h3>
+      <div class="form-group">
+        <select class="form-control" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+          <option value="loanType">loanType</option>
+          <option value="rateOfInterest">rateOfInterest</option>
+          <option value="loanAmount">loanAmount</option>
+        </select>
+      </div> -->
+      <div class="sort">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Sort by</div>
+          </div>  
+          <select class="form-control col-md-8" name=""  id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+            <option value="loanType">Loan Type</option>
+            <option value="rateOfInterest">Rate Of Interest</option>
+            <option value="loanAmount">Loan Amount</option>
+          </select>
+        </div>
+      </div>
+     
+      <div class="col-md-3" >  
+        <input type="search" class="form-control" placeholder="search loan type.." [(ngModel)]="searchValue" id="filter">
+  
+      </div>
+    </div>
+    <table class="table table-hover table-bordered">
+  <thead>
+    <tr class="tablebg">
+      <!-- <th scope="col">Loan No</th> -->
+      <th scope="col">Loan Type</th>
+      <th scope="col">Loan Amount</th>
+      <th scope="col">Rate of Intrest</th>
+      <th scope="col">Period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans | searchPipe : searchValue : 'loanType'">
+      <!-- <td>{{loan.loanNo}}</td> -->
+      <td>{{loan.loanType}}</td>
+      <td>{{loan.loanAmount}}</td>
+      <td>{{loan.rateOfInterest}}</td>
+      <td>{{loan.period}}</td>
+  </tbody>
+</table>
+<mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              (page) ="getNextPageItems($event)">
+</mat-paginator>
+</div>
+</body>

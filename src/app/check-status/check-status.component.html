@@ -1,0 +1,50 @@
+
+<div *ngFor="let applicants of users.applicant">
+  <div  class="container col-md-6" *ngIf="applicants.applicationStatus === 'Approved'" id="approved">
+    <p><strong> APPLICATION-ID : </strong>{{applicants.appId}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN TYPE : </strong>{{applicants.loanType}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN AMOUNT : </strong>{{applicants.loanAmount}}</p>
+  <br>
+  <br>
+  <p id="app"><strong> APPLICATION STATUS : </strong>APPROVED</p>
+  <br>
+  <br>
+  </div>
+
+  <div  class="container col-md-6" *ngIf="applicants.applicationStatus === 'Rejected'" id="rejected">
+    <p><strong> APPLICATION-ID : </strong>{{applicants.appId}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN TYPE : </strong>{{applicants.loanType}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN AMOUNT : </strong>{{applicants.loanAmount}}</p>
+  <br>
+  <br>
+  <p id="rej"><strong> APPLICATION STATUS : </strong>REJECTED</p>
+  <br>
+  <br>
+  </div>
+
+  <div  class="container col-md-6" *ngIf="applicants.applicationStatus === 'Requested'" id="requested">
+    <p><strong> APPLICATION-ID : </strong>{{applicants.appId}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN TYPE : </strong>{{applicants.loanType}}</p>
+  <br>
+  <br>
+  <p><strong> LOAN AMOUNT : </strong>{{applicants.loanAmount}}</p>
+  <br>
+  <br>
+  <p id="req"><strong> APPLICATION STATUS : </strong>REQUESTED</p>
+  <br>
+  <br>
+  </div>
+
+</div>
+
+

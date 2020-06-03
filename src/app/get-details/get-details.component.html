@@ -1,0 +1,38 @@
+
+<body>
+  <div class="container">
+    <div  class="row">
+  <div class="col-md-5">
+
+<h3>Welcome {{details.fullName}} !!</h3>
+<img *ngIf="details.gender=='Male'" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGJSi3R20EO_XWEQOSB5gt0JvYJBbflw0eoAqZegY8OOwXYIfS&usqp=CAU" alt="Avatar"  width="350px" height="350px"/>
+<img *ngIf="details.gender=='Female'" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwH6DalS_KpcvdezZT-tymCO2Spog0pW1g8ySWMhAPAohnxKNJ&usqp=CAU"alt="Avatar"  width="350px" height="350px"/>
+<!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"  width="350px" height="350px" alt=""> -->
+<h2>{{details.fullName}}</h2>
+</div>
+  
+
+
+<div id="side" class="col-md-6">
+  <p><strong> USER-ID : </strong>{{details.userId}}</p>
+  <br>
+  <br>
+  <p><strong> EMAIL-ID  :  </strong>{{details.email}}</p>
+  <br>
+  <br>
+  <p><strong> MOBILE NUMBER  :  </strong> {{details.mobileNo}}</p>
+  <br>
+  <br>
+  <p><strong> ADHAR NUMBER  :  </strong> {{details.adharNo}}</p>
+  <br>
+  <br>
+  <p><strong> GENDER  :  </strong> {{details.gender}}</p>
+  <br>
+  <br>
+  <p><strong> DATE-OF-BIRTH  :  </strong> {{details.dob}}</p>
+  <br>
+  <br>
+</div>
+    </div>
+  </div>
+</body>

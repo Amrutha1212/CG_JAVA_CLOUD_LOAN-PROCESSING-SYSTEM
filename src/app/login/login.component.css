@@ -1,0 +1,85 @@
+
+ .form-control{
+    border-radius: 30px;
+    background-color: rgb(232, 238, 253);
+}
+label{
+    font-size: large;
+    font-family: cursive;
+    font-weight: bold;
+    color: rgba(3, 29, 56, 0.767);
+}
+  
+#form{
+    background: linear-gradient(rgba(209, 230, 252, 0.767),rgba(189, 217, 248, 0.767));
+    background-size: cover;
+    padding-top: 60px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-bottom: 280px;
+    margin-top: 150px;
+    margin-bottom: 90px;
+    margin-left: 50px;
+    /* box-shadow: 3px 3px 5px 5px #999;
+    box-shadow: 0 0 4px 4px #999;
+    border-radius: 60px; */
+}
+.login{
+    margin-bottom: 10px;
+    font-family: cursive;
+    text-align: center;
+    color: rgba(5, 58, 112, 0.767);
+    font-weight: bold;
+}
+.btn{
+    border-radius: 30px;
+    margin-top: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: cursive;
+    font-size: x-large;
+    background-color: rgba(5, 58, 112, 0.767);
+    color: white;
+}
+small{
+    font-family: cursive;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.col-md-6{
+    position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 120px;
+}
+.makeLoan{
+    padding-top: 150px;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    color: white;
+}
+a{
+   color: black;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 40px;
+    padding-left: 20px;
+   
+}
+#side{
+    background-color: rgba(5, 58, 112, 0.767);
+    background-size: cover;
+    padding: 40px;
+    margin-top: 150px;
+    margin-bottom: 90px;   
+}
+.alert{
+    font-family: cursive;
+}
+/* body{
+    background: linear-gradient(rgba(245, 244, 244, 0.767),rgba(245, 244, 244, 0.767));
+    width: 100%;
+} */
+

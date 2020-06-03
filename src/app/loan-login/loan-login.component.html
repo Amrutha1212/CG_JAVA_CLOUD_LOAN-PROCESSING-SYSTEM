@@ -1,0 +1,43 @@
+
+<div class= "alert alert-success" *ngIf='message'>{{ message}}</div>
+<body>
+  <div class="container-fluid col-md-4">
+<form #loanAfterLogin='ngForm'  (ngSubmit)="postapplication(loanAfterLogin)" novalidate id="form">
+  <h1>APPLY LOAN</h1><hr>
+
+
+
+  <div class="form-group">
+    <label>Loan Amount</label>
+    <input type="text" #amount='ngModel' required pattern="[0-9]{4,8}"  [class.is-invalid]='amount.invalid && amount.touched' 
+    class="form-control form-control-lg" id="amount" name="loanAmount" ngModel>
+  <div *ngIf="amount.invalid && amount.touched">
+    <small class="text-danger" *ngIf='amount.errors.required'>This field is required.</small>
+    <small class="text-danger" *ngIf='amount.errors.pattern'>This field only accepts minimum of 4 digit and maximum of 8 digit amount.</small>
+  </div>
+  </div>
+  
+  <div class="form-group"> 
+    <label>Loan Type</label>
+    <select class="form-control form-control-lg" name="loanType" [class.is-invalid]='loanType.invalid && loanType.touched' ngModel #loanType="ngModel" required>
+      <option value="Home Construction">Home Construction</option>
+      <option value="Home Purchase">Home Purchase</option>
+      <option value="Home Extension">Home Extension</option>
+      <option value="Home Extension">Home Conversion</option>
+    </select>
+    <div *ngIf='loanType.invalid && loanType.touched'>
+      <small class="text-danger" *ngIf='loanType.errors.required'>Please choose any option!!</small>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <input type="hidden" name="applicationStatus" id="applicationStatus" #applicationStatus='ngModel' [(ngModel)]="defaultValue" />
+  </div>
+
+
+<button type="submit" [disabled]='loanAfterLogin.form.invalid || loanAfterLogin.form.errors' name="submit" class="btn btn-block">Apply</button>
+
+</form>
+  </div>
+</body>
+

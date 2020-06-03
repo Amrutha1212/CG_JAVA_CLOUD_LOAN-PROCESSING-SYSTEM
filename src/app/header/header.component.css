@@ -1,0 +1,16 @@
+.navbar{
+    /* background-color: rgb(221, 37, 74); */
+    /* background-color: rgba(8, 73, 138, 0.767); */
+    background-color: rgba(5, 58, 112, 0.767);
+}
+.nav-link{
+    font-weight: bold;
+    font-family: cursive;
+}
+nav{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+img{
+    margin-right: 20px;
+}

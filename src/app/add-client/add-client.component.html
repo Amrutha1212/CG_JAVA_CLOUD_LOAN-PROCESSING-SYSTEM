@@ -1,0 +1,89 @@
+<div class= "alert alert-success" *ngIf='message'>{{ message}}</div>
+<div class= "alert alert-danger" *ngIf='message1'>{{ message1}}</div>
+<body>
+  <div class="container-fluid col-md-5">
+<form #addClient='ngForm' (ngSubmit)='postClient(addClient)' novalidate id="form">
+  <h1>ADD CLIENT</h1><hr>
+
+
+
+  <div class="form-group">
+    <label>Full Name</label>
+    <input required  #name='ngModel'  [class.is-invalid]='name.invalid && name.touched' id="name" type="text" class="form-control form-control-lg" 
+    name="fullName" ngModel pattern="([a-zA-Z]{3,20}) ([a-zA-Z ]{1,15})">
+    <div *ngIf="name.invalid && name.touched">
+      <small *ngIf="name.errors?.required" class="text-danger">This field is required.</small>
+      <small *ngIf="name.errors.pattern" class="text-danger">Please enter proper full name (eg. John M).</small>
+      </div>
+ </div>
+
+  <div class="form-group">
+     <label for="email">Email-ID</label>
+     <input required email #email='ngModel' [class.is-invalid]='email.invalid && email.touched' id="email" type="email" class="form-control form-control-lg" 
+     name="email" ngModel minlength="8">
+     <div *ngIf="email.invalid && email.touched">
+       <small *ngIf="email.errors?.required" class="text-danger">This field is required.</small>
+       <small *ngIf="email.errors.minlength" class="text-danger">This field should contain atleast 8 characters.</small>
+       <small *ngIf="email.errors?.email && !(email.errors?.minlength)" class="text-danger">This field only accepts email-id.</small>
+       </div>
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+  <input required #password='ngModel'   [class.is-invalid]='password.invalid && password.touched' type="password" class="form-control form-control-lg" 
+  name="password" ngModel pattern="(?=.*[a-z])(?=.*\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,15}">
+  <div *ngIf="password.invalid && password.touched">
+    <small *ngIf="password.errors?.required" class="text-danger">This field is required.</small>
+    <small *ngIf="password.errors?.pattern" class="text-danger">Must contain at least one number, one uppercase, one lowercase, one special character and atleast 8 or more characters.</small>
+    </div>
+</div>
+
+  <div class="form-group">
+    <label>Mobile Number</label>
+    <input type="text" #phone='ngModel' placeholder="+91" required pattern="^\d{10}$" [class.is-invalid]='phone.invalid && phone.touched' class="form-control form-control-lg" name="mobileNo" ngModel>
+  <div *ngIf="phone.invalid && phone.touched">
+    <small class="text-danger" *ngIf='phone.errors?.required'>This field is required.</small>
+    <small class="text-danger" *ngIf='phone.errors?.pattern'>Mobile number must be 10 digits.</small>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label>Date of Birth</label>
+    <input type="date" #dob='ngModel' required name="dob" [class.is-invalid]='dob.invalid && dob.touched' class="form-control form-control-lg" name="dob" ngModel id="dob">
+    <div *ngIf="dob.invalid && dob.touched">
+      <small *ngIf="dob.errors?.required" class="text-danger">This field is required.</small>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label>Adhar Number</label>
+    <input type="text" #adhar='ngModel' required pattern="[0-9]{12}" [class.is-invalid]='adhar.invalid && adhar.touched' 
+    class="form-control form-control-lg" #adhar="ngModel"   name="adharNo" ngModel>
+    <div *ngIf="adhar.invalid && adhar.touched">
+      <small class="text-danger" *ngIf='adhar.errors.required'>This field is required.</small>
+      <small class="text-danger" *ngIf='adhar.errors.pattern'>This field only accepts 12 digit Adhar Number.</small>
+    </div>
+  </div>
+  
+  <label>Gender</label>
+<br>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="Male" id="male" name="gender" class="custom-control-input" #male='ngModel' [(ngModel)]="gender">
+  <label class="custom-control-label" for="male">Male</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="Female" id="female" name="gender" class="custom-control-input" #female='ngModel' [(ngModel)]="gender">
+  <label class="custom-control-label"  for="female">Female</label>
+</div>
+
+  <div class="form-group">
+    <input type="hidden"  name="role" id="role" #role='ngModel' [(ngModel)]="defaultValue" /> 
+    
+  </div>
+
+
+<button type="submit" [disabled]='addClient.form.invalid || addClient.form.errors' name="submit" class="btn btn-block">Add Client</button>
+
+</form>
+  </div>
+</body>
